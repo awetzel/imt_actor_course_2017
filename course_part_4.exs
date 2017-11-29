@@ -41,17 +41,22 @@ defmodule SimpleSupervisor do
 
   def start_link(child_funcs) do
     {:ok,spawn_link(fn->
-      :erlang.process_flag(:trap_exit,true)
+      # when a linked process dies, by default, it kills the other linked process
+      # the :trap_exit flag make the "death signal" to be converted into a
+      # simple message passing of {:EXIT,the_dead_linked_process,the_death_reason}
+      :erlang.process_flag(:trap_exit,true) 
+      # first the supervisor starts all its childs (each child_fun is a "start_link" function)
       initial_childs_spec = Enum.map(child_funcs, fn child_fun->
         {:ok,pid} = child_fun.()
         {pid,child_fun}
       end)
+      # then go to the server loop in order to wait death of childs to restart them
       loop(initial_childs_spec)
     end)}
   end
 end
 
-mon_compte = fn sup_pid-> # func to get mon_compte pid from supervisor
+mon_compte = fn sup_pid-> # func to get mon_compte pid from supervisor children
   send(sup_pid,{:get_children,self()})
   receive do
     [{single_child_pid,_single_child_fn}]-> single_child_pid
