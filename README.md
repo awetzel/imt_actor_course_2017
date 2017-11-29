@@ -1,6 +1,11 @@
 # IMT Atlantique : Elixir live coding for the erlang Actor Model
 
 Unprepared live-coding session to explain concepts during the course.
+For those interested in a job or intern position, please contact me through :
+`contact@kbrw.fr` or add my associate linkedIn (he is aware of the IMT class
+and your interest) : https://www.linkedin.com/in/jerome-benoliel-6b260316/. No
+need to be hesitant Jerome can explain you the company, and our big and
+interesting projects for large industry and retail groups.
 
 Please :
 - first install elixir to really test the files :
