@@ -11,9 +11,13 @@ defmodule GenericServer do
   # and transmit a generic "state" value : so process state is {callback,state}
   def loop({callback,state}) do 
     receive do
-      {:cast,msg}->
+      {:cast,msg}-> 
+        # a cast is an asynchronious message passing which changes the server state
+        # handle_cast describe how the state changes when a given message/event arrives
         loop({callback,callback.handle_cast(msg,state)})
       {:call,msg,pid}->
+        # a call is a synchronious call to send some information back to the calling process (RPC call)
+        # handle_call compute the response from the query message and the current process state
         send(pid,callback.handle_call(msg,state))
         loop({callback,state})
     end
@@ -31,6 +35,7 @@ defmodule GenericServer do
   end
 end
 
+# implement our account server logic as a callback module implementing handle_cast and handle_call
 defmodule AccountServer do
   def handle_cast({:credit,c},amount), do: amount+c
   def handle_cast({:debit,c},amount), do: amount-c
