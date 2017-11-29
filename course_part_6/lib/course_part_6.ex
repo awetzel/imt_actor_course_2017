@@ -30,10 +30,14 @@ defmodule AccountSupervisor do
   end
 end
 
+# The additional module (compared to part5) to include the supervision tree in
+# an OTP application `start/2` should return {:ok,root_pid} where `root_pid` is
+# the root supervisor of the application.  This module is referenced in the
+# `mix.exs` file in order to define the starting point of the application.
 defmodule AccountApp do
   use Application
   def start(_type,_args) do
-    AccountSupervisor.start_link(
+    AccountSupervisor.start_link( # initial account credit hold is taken from the configuration system
       Application.get_env(:course_part_6,:initial_account_amount))
   end
 end
