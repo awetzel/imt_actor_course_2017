@@ -8,7 +8,7 @@
 
 defmodule AccountFunction do
   def credit(amount,to_credit), do: amount + to_credit
-  def debit(amount,to_debit), do: amount + to_debit
+  def debit(amount,to_debit), do: amount - to_debit
 end
 
 mon_compte0 = 4
