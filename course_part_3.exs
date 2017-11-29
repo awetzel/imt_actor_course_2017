@@ -3,14 +3,15 @@
 # replace our GenericServer with erlang GenServer and observe that it works the same
 # `elixir course_part_3.exs` to execute it
 
-defmodule AccountServer do
+defmodule AccountServer do 
+  # pretty much the same callbacks as with our homemade "GenericServer"
   def handle_cast({:credit,c},amount), do: {:noreply,amount+c}
   def handle_cast({:debit,c},amount), do: {:noreply,amount-c}
   def handle_call(:get,_,amount), do: {:reply,amount,amount}
   def init(amount), do: {:ok,amount}
 
   def start_link(initial_amount) do
-    GenServer.start_link(AccountServer,initial_amount)
+    GenServer.start_link(AccountServer,initial_amount) #GenServer is actually part of the standard library
   end
 end
 
