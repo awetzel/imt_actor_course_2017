@@ -6,7 +6,7 @@ Please :
 - first install elixir to really test the files :
 [http://elixir-lang.github.io/install.html](http://elixir-lang.github.io/install.html).
 - Then read the course slides : [slides in this repo](slides.pdf)
-- Then clone this repo to test : `git clone https://github.com/awetzel/imt_2017`
+- Then clone this repo to test : `git clone https://github.com/awetzel/imt_actor_course_2017`
 - Then read this README and each part `course_part_x.exs` files
 - Then and only then (actor principles are more important than the given
   language) read the Elixir language documentation
