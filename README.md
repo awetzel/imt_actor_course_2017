@@ -2,6 +2,18 @@
 
 Unprepared live-coding session to explain concepts during the course.
 
+Please :
+- first install elixir to really test the files :
+[http://elixir-lang.github.io/install.html](http://elixir-lang.github.io/install.html).
+- Then read the course slides : [slides in this repo](slides.pdf)
+- Then clone this repo to test : `git clone https://github.com/awetzel/imt_2017`
+- Then read this README and each part `course_part_x.exs` files
+- Then and only then (actor principles are more important than the given
+  language) read the Elixir language documentation
+  [http://elixir-lang.github.io/getting-started](http://elixir-lang.github.io/getting-started)
+- If you want to read the same in the erlang language : read
+  [http://learnyousomeerlang.com/content](http://learnyousomeerlang.com/content)
+
 The use case is to manage a bank account 
 - with an initial credit hold of `4` €
 - then credit 5€
@@ -12,12 +24,13 @@ The use case is to manage a bank account
 This course try to "show" the principles of the actor model, how it is
 applied in practice in a functional language (Erlang/Elixir).
 The idea is to build the "account application" incrementally :
-- from scratch first : with only a raw functional language
-- then with a micro-process/coroutine system sending message
-- then with the Erlang/Elixir libraries to create the coroutine
-- then with a supervisor to handle error and restart the coroutine
-- then with the Erlang/Elixir libraries to create the supervisor
-- then with the Erlang-OTP/Elixir-tooling way to create the concept of "application" 
+- part0: from scratch first : with only a raw functional language
+- part1: then with a micro-process/coroutine system sending message
+- part2: then splitting the generic server logic from the business account logic
+- part3: then with the Erlang/Elixir libraries to create the coroutine
+- part4: then with a supervisor to handle error and restart the coroutine
+- part5: then with the Erlang/Elixir libraries to create the supervisor
+- part6: then with the Erlang-OTP/Elixir-tooling way to create the concept of "application" 
 
 ## Part 0 : Functional programming
 
